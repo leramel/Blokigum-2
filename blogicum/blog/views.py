@@ -8,7 +8,9 @@ def index(request):
         is_published=True,
         pub_date__lte=timezone.now(),
         category__is_published=True
-    ).select_related('category', 'location', 'author').order_by('-pub_date')[:5]
+    ).select_related(
+        'category', 'location', 'author'
+    ).order_by('-pub_date')[:5]
 
     context = {'post_list': posts}
     return render(request, 'blog/index.html', context)
@@ -36,7 +38,9 @@ def category_posts(request, category_slug):
         is_published=True,
         pub_date__lte=timezone.now(),
         category=category
-    ).select_related('category', 'location', 'author').order_by('-pub_date')
+    ).select_related(
+        'category', 'location', 'author'
+    ).order_by('-pub_date')
 
     context = {
         'category': category,
