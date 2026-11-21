@@ -27,3 +27,25 @@ ap-django2/
 ├── pytest.ini
 └── requirements.txt
 ```
+
+
+
+git clone https://github.com/leramel/Blokigum-2.git
+
+cd Blokigum-2
+
+python -m venv venv
+
+.\venv\Scripts\activate
+
+pip install -r requirements.txt
+
+python blogicum/manage.py migrate
+
+python blogicum/manage.py loaddata db.json
+
+python blogicum/manage.py createsuperuser
+
+python blogicum/manage.py runserver
+
+
